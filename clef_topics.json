@@ -1,11 +1,11 @@
 [
     {
-        "description": "Imagine that your child is experiencing the health problem shown below.",
+        "description": "Imagine that your child is experiencing the health problem shown above.",
         "link": "/static/restapp/media/BabyWithCroupStridorBarkingCough.mp4",
         "qId": "condition-1"
     },
     {
-        "description": "Imagine that your child is experiencing the health problem shown below.",
+        "description": "Imagine that your child is experiencing the health problem shown above.",
         "link": "",
         "qId": "condition-2"
     },
@@ -40,7 +40,7 @@
         "qId": "condition-8"
     },
     {
-        "description": "Imagine that your child is experiencing the health problem shown below.",
+        "description": "Imagine that your child is experiencing the health problem shown above.",
         "link": "",
         "qId": "condition-9"
     },
@@ -50,7 +50,7 @@
         "qId": "condition-10"
     },
     {
-        "description": "Imagine that your child is experiencing the health problem shown below.",
+        "description": "Imagine that your child is experiencing the health problem shown above.",
         "link": "/static/restapp/media/BronchiolitisCausedByRSV.mp4",
         "qId": "condition-11"
     },
@@ -70,7 +70,7 @@
         "qId": "condition-14"
     },
     {
-        "description": "Imagine that your child is experiencing the health problem shown below.",
+        "description": "Imagine that your child is experiencing the health problem shown above.",
         "link": "/static/restapp/media/6MonthOldBabyWithWhoopingCough.mp4",
         "qId": "condition-15"
     },
@@ -85,12 +85,12 @@
         "qId": "condition-17"
     },
     {
-        "description": "Imagine that your child is experiencing the health problem shown below.",
+        "description": "Imagine that your child is experiencing the health problem shown above.",
         "link": "/static/restapp/media/asthmawheezing.mp4",
         "qId": "condition-18"
     },
     {
-        "description": "Imagine that your child is experiencing the health problem shown below.",
+        "description": "Imagine that your child is experiencing the health problem shown above.",
         "link": "",
         "qId": "condition-19"
     },
@@ -105,7 +105,7 @@
         "qId": "condition-21"
     },
     {
-        "description": "Imagine that your child is experiencing the health problem shown below.",
+        "description": "Imagine that your child is experiencing the health problem shown above.",
         "link": "",
         "qId": "condition-22"
     },
