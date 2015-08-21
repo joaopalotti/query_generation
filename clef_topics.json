@@ -1,0 +1,129 @@
+[
+    {
+        "description": "Imagine that your child is experiencing the health problem shown below.",
+        "link": "/static/restapp/media/BabyWithCroupStridorBarkingCough.mp4",
+        "qId": "condition-1"
+    },
+    {
+        "description": "Imagine that your child is experiencing the health problem shown below.",
+        "link": "",
+        "qId": "condition-2"
+    },
+    {
+        "description": "",
+        "link": "",
+        "qId": "condition-3"
+    },
+    {
+        "description": "",
+        "link": "",
+        "qId": "condition-4"
+    },
+    {
+        "description": "In addition, you feel some discomfort and itch.",
+        "link": "",
+        "qId": "condition-5"
+    },
+    {
+        "description": "In addition, you do not feel pain or discomfort, but you can not see properly.",
+        "link": "",
+        "qId": "condition-6"
+    },
+    {
+        "description": "",
+        "link": "",
+        "qId": "condition-7"
+    },
+    {
+        "description": "",
+        "link": "",
+        "qId": "condition-8"
+    },
+    {
+        "description": "Imagine that your child is experiencing the health problem shown below.",
+        "link": "",
+        "qId": "condition-9"
+    },
+    {
+        "description": "In addition you feel a lot of itching.",
+        "link": "",
+        "qId": "condition-10"
+    },
+    {
+        "description": "Imagine that your child is experiencing the health problem shown below.",
+        "link": "/static/restapp/media/BronchiolitisCausedByRSV.mp4",
+        "qId": "condition-11"
+    },
+    {
+        "description": "",
+        "link": "",
+        "qId": "condition-12"
+    },
+    {
+        "description": "",
+        "link": "",
+        "qId": "condition-13"
+    },
+    {
+        "description": "You are experiencing this condition after a trip to the Rocky Mountains in the US; it is since yesterday that your temperature is at 39 degrees.",
+        "link": "",
+        "qId": "condition-14"
+    },
+    {
+        "description": "Imagine that your child is experiencing the health problem shown below.",
+        "link": "/static/restapp/media/6MonthOldBabyWithWhoopingCough.mp4",
+        "qId": "condition-15"
+    },
+    {
+        "description": "",
+        "link": "",
+        "qId": "condition-16"
+    },
+    {
+        "description": "",
+        "link": "",
+        "qId": "condition-17"
+    },
+    {
+        "description": "Imagine that your child is experiencing the health problem shown below.",
+        "link": "/static/restapp/media/asthmawheezing.mp4",
+        "qId": "condition-18"
+    },
+    {
+        "description": "Imagine that your child is experiencing the health problem shown below.",
+        "link": "",
+        "qId": "condition-19"
+    },
+    {
+        "description": "",
+        "link": "",
+        "qId": "condition-20"
+    },
+    {
+        "description": "In addition, your eye is itchy.",
+        "link": "",
+        "qId": "condition-21"
+    },
+    {
+        "description": "Imagine that your child is experiencing the health problem shown below.",
+        "link": "",
+        "qId": "condition-22"
+    },
+    {
+        "description": "",
+        "link": "/static/restapp/media/video6.mp4",
+        "qId": "condition-23"
+    },
+    {
+        "description": "This happened after you have used contact lenses on all the day.",
+        "link": "",
+        "qId": "condition-24"
+    },
+    {
+        "description": "",
+        "link": "",
+        "qId": "condition-25"
+    }
+
+]
+

@@ -1,9 +1,9 @@
+#!/usr/bin/env python
+
 import json
 import sqlite3
 import argparse
  
-JSON_FILE = "some.json"
-DB_FILE = "some.db"
  
 def import_json(db_file, json_file):
 
@@ -16,8 +16,8 @@ def import_json(db_file, json_file):
 	 
 	c = conn.cursor()
 	for item in json_data:
-		row = [ item["qId"], item["description"], item["queryType"] ]
-		c.execute('insert into restapp_query (qId, description, queryType) values (?,?, ?)', row) 
+		row = [ item["qId"], item["description"], item["link"] ]
+		c.execute('insert into restapp_query (qId, description, link) values (?,?, ?)', row) 
 	conn.commit()
 	c.close()
 

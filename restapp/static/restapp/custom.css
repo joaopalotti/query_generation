@@ -1,5 +1,6 @@
 blockquote {
-	font-size:small;
+  margin-top: 20px;
+  font-size: 14px;
 }
 
 h3 {
@@ -28,4 +29,17 @@ hr {
 .case {
 	margin-left: 20px;
 	margin-bottom: 40px;
+}
+
+.condition {
+  max-width: 600px;
+}
+
+video {
+  
+  background-color: black;
+}
+
+.prompt {
+  margin-top: 20pt;
 }

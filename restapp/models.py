@@ -4,7 +4,7 @@ from django.db import models
 class Query(models.Model):
 	qId = models.CharField(max_length=250)
 	description = models.TextField(blank=True, null=True)
-	queryType = models.CharField(max_length=250)
+	link = models.CharField(max_length=250)
 
 	def __str__(self):
 		return self.qId
