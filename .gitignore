@@ -1,2 +1,4 @@
 *.pyc
 db.sqlite3
+clef_topics-topic6.json
+publish.sh
