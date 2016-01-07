@@ -1,4 +1,4 @@
-# cds_query_generation
+# Information Retrieval Query Generation
 Annotator toolkit for creating manual queries from clinical decision support scenarios.
 
 Uses AnjularJS, Django
