@@ -76,9 +76,9 @@ class QueryDetail(APIView):
 		return Response(status=status.HTTP_204_NO_CONTENT)
 
 
-class KeywordDetail(APIView):
+class KeywordList(APIView):
 	"""
-	Retrieve, update or delete a query instance.
+	Retrieve, update or delete a keyword instance.
 	"""
 	# def get_object(self, qId):
 	# 	try:
@@ -92,7 +92,7 @@ class KeywordDetail(APIView):
 		keywordSerializer = KeywordSerializer(keyword, many=True)
 		return Response(keywordSerializer.data)
 
-	def put(self, request, qId, format=None):
+	def put(self, request, qId, format=None):		
 		query = Query.objects.get(qId=qId)
 		keyword = Keywords(query=query, keywords=request.DATA["keywords"], person=request.DATA["person"], order=request.DATA["order"])
 
@@ -102,7 +102,28 @@ class KeywordDetail(APIView):
 			return Response(serializer.data)
 		return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
-	def delete(self, request, qId, format=None):
+class KeywordDetail(APIView):
+	"""
+	Retrieve, update or delete a keyword instance.
+	"""
+	# def get_object(self, qId):
+	# 	try:
+	# 		return Query.objects.get(qId=qId)
+	# 	except Query.DoesNotExist:
+	# 		raise Http404
+
+	def get(self, request, qId, person, order, format=None):
 		query = Query.objects.get(qId=qId)
-		query.delete()
+		print "Doing a get for", qId, person, order
+		keyword = Keywords.objects.get(query=query, person=person, order=order)
+		keywordSerializer = KeywordSerializer(keyword)
+		return Response(keywordSerializer.data)
+
+
+
+
+	def delete(self, request, qId, person, order, format=None):
+		query = Query.objects.get(qId=qId)
+		keyword = Keywords.objects.get(query=query, person=person, order=order)
+		keyword.delete()
 		return Response(status=status.HTTP_204_NO_CONTENT)

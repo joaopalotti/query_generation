@@ -62,8 +62,10 @@
 				
 					
 					<ol>
-						<li ng-repeat="keyword in patient.keywords" ng-if="keyword.person.toLowerCase() == patientCtrl.person.toLowerCase()">{$ keyword.keywords $}</li>
+						<li ng-repeat="keyword in patient.keywords" ng-if="keyword.person.toLowerCase() == patientCtrl.person.toLowerCase()">{$ keyword.keywords $} <a ng-click="patientCtrl.remove_keywords(patient.qId, keyword.person, keyword.order, keyword.keywords)" class="close">&times;</a></li>
 					</ol>
+
+
 
 
 					<form name="reviewForm" ng-submit='keywordCtrl.addKeywords(patient, patientCtrl.person, patient.keywords.length+1)' ng-controller="KeywordController as keywordCtrl">
