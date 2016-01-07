@@ -1,11 +1,11 @@
 # Information Retrieval Query Generation
-Annotator toolkit for creating manual queries from clinical decision support scenarios.
+Annotator toolkit for creating manual queries from information retrieval experiments / systems.
 
 Uses AnjularJS, Django
 
 ## Setup 
 
-All the data was provided to in CSV format. The process to index with ElasticSearch was as follows:
+All the data was provided to in CSV format. The process to setup is as follows:
 
 - Run `./manage.py syncdb` to create the db. Follow the instructions.
 - Run the `python import_patients.py db.sqlite3 all-trec-cds-topics.json` to import the set of queries. Or choose alternative JSON import file.
