@@ -59,20 +59,35 @@
 				
 					<blockquote>{$ patient.description $}</blockquote>
 
-					
-				
-					
-					<ol>
-						<li ng-repeat="keyword in patient.keywords" ng-if="keyword.person.toLowerCase() == patientCtrl.person.toLowerCase()">{$ keyword.keywords $} <a ng-click="patientCtrl.remove_keywords(patient.qId, keyword.person, keyword.order, keyword.keywords)" class="close">&times;</a></li>
-					</ol>
+					<form name="expectedForm" ng-submit='patientCtrl.addExpected(patient, patientCtrl.expectedResults)' ng-hide="(patient.expected | filter: {person : patientCtrl.person} : true)[0].expected">
 
-
-
-					<p>Please provide us with one or more queries you would enter when searching for eligible clinical trials for this patient.</p>
-					<form name="reviewForm" ng-submit='keywordCtrl.addKeywords(patient, patientCtrl.person, patient.keywords.length+1)' ng-controller="KeywordController as keywordCtrl">
+						<p>How many clinical trials would you expect to find for this patient?</p> 
 						<fieldset class="form-group">
 							<div class="input-group col-md-6">
-								
+								<input ng-model="patientCtrl.expectedResults" class="form-control"  title="Keywords" />
+								<span class="input-group-btn">
+									<button class="btn btn-default" type="submit">Save</button>
+								</span>
+							</div><!-- /input-group -->
+						</fieldset>
+
+					</form>
+
+					
+				
+
+					<form ng-show="((patient.expected | filter: {person : patientCtrl.person} : true)[0].expected)" name="reviewForm" ng-submit='keywordCtrl.addKeywords(patient, patientCtrl.person, patient.keywords.length+1)' ng-controller="KeywordController as keywordCtrl">
+
+						<p><em>You have indicated {$ (patient.expected | filter: {person : patientCtrl.person} : true)[0].expected $} expected trials for this patient.</em></p>
+
+						<ol>
+							<li ng-repeat="keyword in patient.keywords" ng-if="keyword.person.toLowerCase() == patientCtrl.person.toLowerCase()">{$ keyword.keywords $} <a ng-click="patientCtrl.remove_keywords(patient.qId, keyword.person, keyword.order, keyword.keywords)" class="close">&times;</a></li>
+						</ol>
+
+						<p>Please provide us with one or more queries you would enter when searching for eligible clinical trials for this patient.</p>
+
+						<fieldset class="form-group">
+							<div class="input-group col-md-6">
 								<input ng-model="keywordCtrl.currentKeywords" class="form-control" placeholder="Enter your query." title="Keywords" />
 								<span class="input-group-btn">
 									<button class="btn btn-default" type="submit">Save</button>
@@ -80,6 +95,8 @@
 							</div><!-- /input-group -->
 						</fieldset>
 					</form>
+
+					
 
 				</div>
 				<hr>

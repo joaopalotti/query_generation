@@ -114,7 +114,6 @@ class KeywordDetail(APIView):
 
 	def get(self, request, qId, person, order, format=None):
 		query = Query.objects.get(qId=qId)
-		print "Doing a get for", qId, person, order
 		keyword = Keywords.objects.get(query=query, person=person, order=order)
 		keywordSerializer = KeywordSerializer(keyword)
 		return Response(keywordSerializer.data)
@@ -127,3 +126,34 @@ class KeywordDetail(APIView):
 		keyword = Keywords.objects.get(query=query, person=person, order=order)
 		keyword.delete()
 		return Response(status=status.HTTP_204_NO_CONTENT)
+
+class ExpectedResultsDetail(APIView):
+	"""
+	Retrieve, update or delete a keyword instance.
+	"""
+	# def get_object(self, qId):
+	# 	try:
+	# 		return Query.objects.get(qId=qId)
+	# 	except Query.DoesNotExist:
+	# 		raise Http404
+
+	def get(self, request, qId, person, format=None):
+		query = Query.objects.get(qId=qId)
+		expected = ExpectedResults.objects.get(query=query, person=person)
+		expectedResults = ExpectedResults(keyword)
+		return Response(expectedResults.data)
+
+
+	def put(self, request, qId, format=None):
+		print request.DATA["expected"]
+		query = Query.objects.get(qId=qId)
+		expectedResults, created = ExpectedResults.objects.get_or_create(query=query, person=request.DATA["person"])
+		expectedResults.save()
+		print expectedResults
+
+		serializer = ExpectedResultsSerializer(expectedResults, data=request.DATA)
+		if serializer.is_valid():
+			serializer.save()
+			return Response(serializer.data)
+		return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+

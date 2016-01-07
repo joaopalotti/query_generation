@@ -13,6 +13,18 @@ class Query(models.Model):
 	class Meta:
 		app_label = 'restapp'
 
+class ExpectedResults(models.Model):
+	query = models.ForeignKey(Query)
+	person = models.CharField(max_length=250)  
+	expected = models.IntegerField(blank=True, null=True)
+
+	class Meta:
+		unique_together = ('query', 'person')
+		
+
+	def __unicode__(self):
+		return '%s, %s: %s' % (self.query, self.person, self.expected)
+
 class Keywords(models.Model):
 	query = models.ForeignKey(Query)
 
