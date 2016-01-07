@@ -61,9 +61,10 @@
 
 					<form name="expectedForm" ng-submit='expectedCtrl.addExpected(patient, patientCtrl.person, expectedCtrl.expectedResults)' ng-controller="ExpectedController as expectedCtrl">
 
-						<p>How many clinical trials would you expect to find for this patient?</p> 
+						<p>How many clinical trials do you expect this patient would be eligible for?</p> 
+
 						<fieldset class="form-group">
-							<div class="input-group col-md-6">
+							<div class="input-group col-md-2">
 								<input ng-model="expectedCtrl.expectedResults" class="form-control"  title="Keywords" />
 								<span class="input-group-btn">
 									<button class="btn btn-default" type="submit">Save</button>
@@ -71,11 +72,12 @@
 							</div><!-- /input-group -->
 						</fieldset>
 
-						<div ng-show="expectedCtrl.expectedResults || (patient.expected | filter: {person : patientCtrl.person} : true)[0].expected">
+						<div ng-show="expectedCtrl.displayExpected || ((patient.expected | filter: {person : patientCtrl.person} : true)[0].expected)">
 
-						<p ng-hide="expectedCtrl.expectedResults" ng-show="(patient.expected | filter: {person : patientCtrl.person} : true)[0].expected"><em>You have indicated {$ (patient.expected | filter: {person : patientCtrl.person} : true)[0].expected $} expected trials for this patient.</em></p>
+							<p  ng-hide="expectedCtrl.displayExpected" ng-show="(patient.expected | filter: {person : patientCtrl.person} : true)[0].expected"><em>You have indicated <strong>{$ (patient.expected | filter: {person : patientCtrl.person} : true)[0].expected $}</strong> expected trials for this patient.</em></p>
 
-						<p ng-show="expectedCtrl.expectedResults" ng-hide="(patient.expected | filter: {person : patientCtrl.person} : true)[0].expected"><em>You have indicated {$ expectedCtrl.expectedResults $} expected trials for this patient.</em></p>
+							<p ng-show="expectedCtrl.displayExpected" ng-hide="(patient.expected | filter: {person : patientCtrl.person} : true)[0].expected"><em>You have indicated <strong>{$ expectedCtrl.displayExpected $}</strong> expected trials for this patient.</em></p>						
+
 						</div>
 
 					</form>

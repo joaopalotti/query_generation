@@ -1,5 +1,6 @@
 blockquote {
-	font-size:small;
+	font-size:medium;
+  line-height: 1.5em;
 }
 
 h3 {

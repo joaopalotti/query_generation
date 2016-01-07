@@ -16,15 +16,19 @@
         var expectedCtrl = this;
         this.expectedResults = null;
 
+        this.displayExpected = null;
+
         this.addExpected = function(patient, person, expectedIn) {
 
             var expected = {};
             expected["person"] = person;
             expected["expected"] = expectedIn;
 
-            console.log(expected);
+            patient.expected.push(expected);
+
             $http.put('/expected/'+patient.qId+'/', expected).success(function(data) {
                 expectedCtrl.expectedResults = expectedIn;
+                expectedCtrl.displayExpected = expectedIn;
             }).error(function(data, status, headers, config) {
                 alert("error on post");
                 console.log(data);
