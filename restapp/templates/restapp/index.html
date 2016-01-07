@@ -59,26 +59,33 @@
 				
 					<blockquote>{$ patient.description $}</blockquote>
 
-					<form name="expectedForm" ng-submit='patientCtrl.addExpected(patient, patientCtrl.expectedResults)' ng-hide="(patient.expected | filter: {person : patientCtrl.person} : true)[0].expected">
+					<form name="expectedForm" ng-submit='expectedCtrl.addExpected(patient, patientCtrl.person, expectedCtrl.expectedResults)' ng-controller="ExpectedController as expectedCtrl">
 
 						<p>How many clinical trials would you expect to find for this patient?</p> 
 						<fieldset class="form-group">
 							<div class="input-group col-md-6">
-								<input ng-model="patientCtrl.expectedResults" class="form-control"  title="Keywords" />
+								<input ng-model="expectedCtrl.expectedResults" class="form-control"  title="Keywords" />
 								<span class="input-group-btn">
 									<button class="btn btn-default" type="submit">Save</button>
 								</span>
 							</div><!-- /input-group -->
 						</fieldset>
 
+						<div ng-show="expectedCtrl.expectedResults || (patient.expected | filter: {person : patientCtrl.person} : true)[0].expected">
+
+						<p ng-hide="expectedCtrl.expectedResults" ng-show="(patient.expected | filter: {person : patientCtrl.person} : true)[0].expected"><em>You have indicated {$ (patient.expected | filter: {person : patientCtrl.person} : true)[0].expected $} expected trials for this patient.</em></p>
+
+						<p ng-show="expectedCtrl.expectedResults" ng-hide="(patient.expected | filter: {person : patientCtrl.person} : true)[0].expected"><em>You have indicated {$ expectedCtrl.expectedResults $} expected trials for this patient.</em></p>
+						</div>
+
 					</form>
 
 					
 				
 
-					<form ng-show="((patient.expected | filter: {person : patientCtrl.person} : true)[0].expected)" name="reviewForm" ng-submit='keywordCtrl.addKeywords(patient, patientCtrl.person, patient.keywords.length+1)' ng-controller="KeywordController as keywordCtrl">
+					<form name="reviewForm" ng-submit='keywordCtrl.addKeywords(patient, patientCtrl.person, patient.keywords.length+1)' ng-controller="KeywordController as keywordCtrl">
 
-						<p><em>You have indicated {$ (patient.expected | filter: {person : patientCtrl.person} : true)[0].expected $} expected trials for this patient.</em></p>
+						
 
 						<ol>
 							<li ng-repeat="keyword in patient.keywords" ng-if="keyword.person.toLowerCase() == patientCtrl.person.toLowerCase()">{$ keyword.keywords $} <a ng-click="patientCtrl.remove_keywords(patient.qId, keyword.person, keyword.order, keyword.keywords)" class="close">&times;</a></li>

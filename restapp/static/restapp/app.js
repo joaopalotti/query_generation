@@ -13,6 +13,23 @@
     });
 
     app.controller('ExpectedController', ['$http', '$location', '$cookies', function($http, $location, $cookies){
+        var expectedCtrl = this;
+        this.expectedResults = null;
+
+        this.addExpected = function(patient, person, expectedIn) {
+
+            var expected = {};
+            expected["person"] = person;
+            expected["expected"] = expectedIn;
+
+            console.log(expected);
+            $http.put('/expected/'+patient.qId+'/', expected).success(function(data) {
+                expectedCtrl.expectedResults = expectedIn;
+            }).error(function(data, status, headers, config) {
+                alert("error on post");
+                console.log(data);
+            });
+        };
 
     }]);   
 
@@ -21,7 +38,7 @@
         this.patients = {};
         this.person = "";
         
-        this.expectedResults = null;
+        
 
         var patientCtrl = this;
         
@@ -33,22 +50,7 @@
 
         this.getQueries();
 
-        this.addExpected = function(patient, expectedIn) {
-
-            var expected = {};
-            expected["person"] = patientCtrl.person;
-            expected["expected"] = expectedIn;
-
-            console.log(expected);
-            $http.put('/expected/'+patient.qId+'/', expected).success(function(data) {
-                patientCtrl.expectedResults = expectedIn;
-                patientCtrl.doneExpected = true;
-                patientCtrl.getQueries();
-            }).error(function(data, status, headers, config) {
-                alert("error on post");
-                console.log(data);
-            });
-        };
+        
 
         this.remove_keywords = function(qid, person, order, keywordsIn) {
         
