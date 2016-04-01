@@ -1,23 +1,21 @@
 import json
 import sqlite3
 import argparse
- 
+
 JSON_FILE = "some.json"
 DB_FILE = "some.db"
- 
+
 def import_json(db_file, json_file):
 
 	json_data = json.load(open(json_file))
 	conn = sqlite3.connect(db_file)
-	 
-	
 
 	data = [] # list of values for single row
-	 
+
 	c = conn.cursor()
 	for item in json_data:
-		row = [ item["qId"], item["description"], item["queryType"] ]
-		c.execute('insert into restapp_query (qId, description, queryType) values (?,?, ?)', row) 
+		row = [ item["qId"], item["title"], item["description"] ]
+		c.execute('insert into restapp_query (qId, title, description) values (?,?,?)', row)
 	conn.commit()
 	c.close()
 

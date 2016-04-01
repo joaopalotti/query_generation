@@ -16,7 +16,7 @@ class QuerySerializer(serializers.ModelSerializer):
 
 	class Meta:
 		model = Query
-		fields = ('qId', 'description', 'queryType', 'keywords')
+		fields = ('qId', 'title', 'description', 'keywords')
 
 class KeywordSerializer(serializers.ModelSerializer):
 	class Meta:
