@@ -32,7 +32,7 @@ for j, fname in enumerate(files):
     # fields used by query_generator
     row['description'] = post
     row['queryType'] = "diagnosis"
-    row['qId'] = path.basename(fname)
+    row['qId'] = path.basename(fname).split(".txt")[0]
     rows.append(row)
 
 outfile = "topics_clef.json"
