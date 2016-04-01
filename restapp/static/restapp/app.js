@@ -30,7 +30,6 @@
     app.controller('KeywordController', ['$http', '$location', '$cookies', function($http, $location, $cookies){
         this.currentKeywords = "";
         
-
         var keywordCtrl = this;
         
         this.addKeywords = function(patient, person, order) {
@@ -46,7 +45,6 @@
 
             patient.keywords.push(keywords);
 
-            
 
             $http.defaults.headers.put['X-CSRFToken'] = $cookies.csrftoken;
             $http.put('/keywords/'+patient.qId+'/', keywords).success(function(data) {
@@ -54,7 +52,7 @@
                 keywordCtrl.currentKeywords = "";
                 console.log(data);
             }).error(function(data, status, headers, config) {
-                alert("error on post");
+                alert("error on post: " + status + "ks: "+ keywords +"data:" +  data);
                 console.log(data);
             });
 
