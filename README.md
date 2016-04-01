@@ -3,12 +3,11 @@ Annotator toolkit for creating manual queries from information retrieval experim
 
 Uses AnjularJS, Django
 
-## Pre-requiments;
-You should have at least the following packages installed on your machine: django==1.8 and djangorestframework
+## Pre-requirements
+You should have at least the following packages installed on your machine: django==1.8 and djangorestframework (worked with version 3.3.3) 
 You can install them using pip:
 
 > pip install djangorestframework django==1.8
-
 
 ## Setup 
 
@@ -23,3 +22,6 @@ All the data was provided to in CSV format. The process to setup is as follows:
 ## Getting data out
 
 See `http://localhost:8000/queries` for the REST get for all queries and corresponding keywords.
+
+## Known Bugs
+- The current version does not work with django==1.9 yet.
