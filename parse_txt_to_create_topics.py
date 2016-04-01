@@ -7,6 +7,7 @@ generating a json file that is accepted by the query_generator django db
 import sys
 import json
 import glob
+from os import path
 
 if len(sys.argv) < 1:
     print "python parse_txt_to_create_topics.py folder_with_a_bunch_of_html_files"
@@ -31,7 +32,7 @@ for j, fname in enumerate(files):
     # fields used by query_generator
     row['description'] = post
     row['queryType'] = "diagnosis"
-    row['qId'] = fname
+    row['qId'] = path.basename(fname)
     rows.append(row)
 
 outfile = "topics_clef.json"
