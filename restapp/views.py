@@ -33,7 +33,7 @@ class QueryList(APIView):
 		return Response(serializer.data)
 
 	def post(self, request, format=None):
-		serializer = QuerySerializer(data=request.DATA)
+		serializer = QuerySerializer(data=request.data)
 		if serializer.is_valid():
 			serializer.save()
 			return Response(serializer.data, status=status.HTTP_201_CREATED)
@@ -63,7 +63,7 @@ class QueryDetail(APIView):
 
 	def put(self, request, qId, format=None):
 		query = Query.objects.get(qId=qId)
-		serializer = QuerySerializer(query, data=request.DATA)
+		serializer = QuerySerializer(query, data=request.data)
 		if serializer.is_valid():
 			serializer.save()
 			return Response(serializer.data)
@@ -94,9 +94,9 @@ class KeywordDetail(APIView):
 
 	def put(self, request, qId, format=None):
 		query = Query.objects.get(qId=qId)
-		keyword = Keywords(query=query, keywords=request.DATA["keywords"], person=request.DATA["person"], order=request.DATA["order"])
+		keyword = Keywords(query=query, keywords=request.data["keywords"], person=request.data["person"], order=request.data["order"])
 
-		serializer = KeywordSerializer(keyword, data=request.DATA)
+		serializer = KeywordSerializer(keyword, data=request.data)
 		if serializer.is_valid():
 			serializer.save()
 			return Response(serializer.data)
