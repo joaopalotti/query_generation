@@ -29,3 +29,8 @@ hr {
 	margin-left: 20px;
 	margin-bottom: 40px;
 }
+
+/* in the css file or in a style block */
+.angular-with-newlines {
+    white-space: pre-wrap;
+}
