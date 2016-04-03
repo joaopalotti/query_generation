@@ -7,7 +7,7 @@
 		<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 		<meta name="description" content="">
 		<meta name="author" content="">
-	 
+
 
 		<title>Clinical Decision Support Query Generation</title>
 
@@ -23,17 +23,16 @@
 		<div class="container"  ng-controller="PatientController as patientCtrl">
 
 			<div class="page-header">
-				<h1>Clinical Decision Support Query Generation</h1>
+				<h1>Health Information Search Query Generation</h1>
 			</div>
 
-			<p class="lead">Help us understand how you would search for evidence based medicine resources.</p>
+			<p class="lead">Help us understand how you would search for health information.</p>
 
 			<p>
-			<strong>Instructions:</strong> 
+			<strong>Instructions:</strong>
 				<ol>
-					<li>You will be presented with a number of patient case reports.</li>
-					<li>For each case reports there is an associated clinical question, e.g., <em>What is the patient's diagnosis?</em></li>
-					<li>We would like you to provide us with one or more queries that <em>you</em> would issue to a search engine in order to help answer the clinical question.</li>
+					<li>You will be presented with a number of patient health case.</li>
+					<li>We would like you to provide us with queries you would issue to a search engine if you, or your loved ones, were experiencing such a condition and you wanted to find out more information about it.</li>
 					<li>You can return to this page at anytime, just enter your name again and all your saved queries will be shown.</li>
 				</ol>
 			</p>
@@ -45,21 +44,21 @@
 			  </div>
 			</form>
 
-			
+
 
 			<hr ng-show="patientCtrl.person">
 
-			
+
 			<div ng-repeat="patient in patientCtrl.patients | limitTo: -(patientCtrl.patients.length-{{batch}}+1) | limitTo: {{size}}" ng-show="patientCtrl.person">
-				
+
 				<h3>{$ patient.qId $}</h3>
 
 				<div class="case">
-				
-                    <blockquote class="angular-with-newlines"><b>{$ patient.title $}</b><br>{$ patient.description $}</blockquote> 
+
+                    <blockquote class="angular-with-newlines"><b>{$ patient.title $}</b><br>{$ patient.description $}</blockquote>
                     <p>What would you search for to find information on to help this user? </p>
-				
-					
+
+
 					<ol>
 						<li ng-repeat="keyword in patient.keywords" ng-if="keyword.person.toLowerCase() == patientCtrl.person.toLowerCase()">{$ keyword.keywords $}</li>
 					</ol>
