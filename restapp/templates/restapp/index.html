@@ -48,14 +48,14 @@
 
 			<hr ng-show="patientCtrl.person">
 
-
 			<div ng-repeat="patient in patientCtrl.patients | limitTo: -(patientCtrl.patients.length-{{batch}}+1) | limitTo: {{size}}" ng-show="patientCtrl.person">
 
-				<h3>{$ patient.qId $}</h3>
+                <h3> Topic <a href="/static/restapp/{$ patient.qId $}.html" target="_blank"> {$ patient.qId $} </a> </h3>
 
 				<div class="case">
 
-                    <blockquote class="angular-with-newlines"><b>{$ patient.title $}</b><br>{$ patient.description $}</blockquote>
+                    <blockquote class="angular-with-newlines"><b>{$ patient.title $}</b>
+                    <br>{$ patient.description $}</blockquote>
                     <p>What would you search for to find information on to help this user? Type in three queries. The button "Save" saves the current query and allows you to type another one. </p>
 
 
@@ -66,11 +66,16 @@
 
 					<form name="reviewForm" ng-submit='keywordCtrl.addKeywords(patient, patientCtrl.person, patient.keywords.length+1)' ng-controller="KeywordController as keywordCtrl">
 						<fieldset class="form-group">
-							<div class="input-group col-md-6">
-								<input ng-model="keywordCtrl.currentKeywords" class="form-control" placeholder="Enter your query." title="Keywords" />
-								<span class="input-group-btn">
-									<button class="btn btn-default" type="submit">Save</button>
-								</span>
+							<div class="input-group col-md-12">
+                            <!--<input ng-model="keywordCtrl.currentKeywords" class="form-control" placeholder="Enter your query." title="Keywords" /> -->
+                                <div class="col-xs-10">
+                                    <textarea ng-model="keywordCtrl.currentKeywords" class="form-control" rows="5" placeholder="Enter the relevance criteria." title="Keywords"></textarea>
+                                </div>
+                                <div class="col-xs-2">
+				    				<span class="input-group-btn">
+					    				<button class="btn btn-default" type="submit">Save</button>
+						    		</span>
+                                </div>
 							</div><!-- /input-group -->
 						</fieldset>
 					</form>
